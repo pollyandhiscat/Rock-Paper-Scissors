@@ -21,6 +21,11 @@ function getPlayerChoice(){
     }
 }
 
+function determineWinner(computerChoice, playerChoice){
+
+    
+}
+
 
 function playGame() {
 
