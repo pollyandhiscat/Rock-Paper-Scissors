@@ -10,7 +10,7 @@ function getPlayerChoice(){
 
     choice = prompt("Please choose rock, paper, or scissors.").toLowerCase();
     
-    if (choice != 'rock' || choice != 'paper' || choice != 'scissors'){
+    if (choice != 'rock' && choice != 'paper' && choice != 'scissors'){
 
         return false; 
     }
