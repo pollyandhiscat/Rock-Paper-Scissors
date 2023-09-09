@@ -24,6 +24,7 @@ function getPlayerChoice(){
 function determineWinner(computerChoice, playerChoice){
 
     
+
 }
 
 
@@ -31,6 +32,6 @@ function playGame() {
 
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
-    let winner = determineWinner();
+    let winner = determineWinner(computerChoice, playerChoice);
     console.log(winner);
 }
