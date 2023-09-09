@@ -21,3 +21,11 @@ function getPlayerChoice(){
     }
 }
 
+
+function playGame() {
+
+    let computerChoice = getComputerChoice();
+    let playerChoice = getPlayerChoice();
+    let winner = determineWinner();
+    console.log(winner);
+}
