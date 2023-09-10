@@ -1,27 +1,30 @@
+function startListeners(rockButton, paperButton, scissorButton){
+
+    rockButton.addEventListener('click', () => {
+
+        playGame(rockButton.id)
+    });
+    
+    paperButton.addEventListener('click', () => {
+    
+            playGame(paperButton.id)
+    });
+    
+    scissorButton.addEventListener('click', () => {
+    
+        playGame(scissorButton.id)
+    });
+
+}
 
 let computerWins = 0;
 let playerWins = 0;
 let ties = 0;
-
 const playerSelection = document.querySelector('#playerSelection');
 let rockButton = playerSelection.querySelector('#rock');
 let paperButton = playerSelection.querySelector('#paper');
 let scissorButton = playerSelection.querySelector('#scissors');
-
-rockButton.addEventListener('click', () => {
-
-    playGame(rockButton.id)
-});
-
-paperButton.addEventListener('click', () => {
-
-        playGame(paperButton.id)
-});
-
-scissorButton.addEventListener('click', () => {
-
-    playGame(scissorButton.id)
-});
+startListeners(rockButton, paperButton, scissorButton);
 
 function getComputerChoice() {
 
