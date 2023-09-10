@@ -86,12 +86,7 @@ function playGame() {
     return [message, winner];
 }
 
-function game(rounds = 5) {
-
-    /* Play a series of rock,paper,scissors.
-    the default number of games is five, but you can pass
-    a different number if you wish to play more or less.
-    */
+/* function game(rounds = 5) {
 
     if (typeof rounds !== 'number') {
 
@@ -147,4 +142,4 @@ function game(rounds = 5) {
         result = `${overallWinner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
         console.log(result);
     }
-}
+}*/
