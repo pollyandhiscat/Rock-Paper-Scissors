@@ -1,3 +1,28 @@
+
+let computerWins = 0;
+let playerWins = 0;
+let ties = 0;
+
+const playerSelection = document.querySelector('#playerSelection');
+let rockButton = playerSelection.querySelector('#rock');
+let paperButton = playerSelection.querySelector('#paper');
+let scissorButton = playerSelection.querySelector('#scissors');
+
+rockButton.addEventListener('click', () => {
+
+    playGame(rockButton.id)
+});
+
+paperButton.addEventListener('click', () => {
+
+        playGame(paperButton.id)
+});
+
+scissorButton.addEventListener('click', () => {
+
+    playGame(scissorButton.id)
+});
+
 function getComputerChoice() {
 
     let choices = ['rock', 'paper', 'scissors'];
@@ -75,93 +100,70 @@ function determineWinner(computerChoice, playerChoice) {
     return [result, winner];
 }
 
-
 function playGame(choice) {
 
+    console.log('Playing game');
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice(choice);
     let result = determineWinner(computerChoice, playerChoice);
-    let message = result[0];
     let winner = result[1];
-    return [message, winner];
-}
-
-
-function displayPlayerButtons() {
-
-    const playerSelection = document.querySelector('#playerSelection');
-    // buttons is a node list.
-    let buttons = playerSelection.querySelectorAll('.player-button');
-    buttons.forEach(button => {
-
-        button.addEventListener('click', () => {
-
-            let choice = button.id.toString();
-            let result = playGame(choice);
-            alert(result[0]);
-
-        });
-
-    });
-
+    game(winner);
 
 }
 
 
-/* function game(rounds = 5) {
+function resetWinner() {
 
-    if (typeof rounds !== 'number') {
+    let computerWins = 0;
+    let playerWins = 0;
+    let ties = 0;
+}
 
-        return `Sorry, you must provide a number of rounds (integer type). Your provided rounds of ${rounds} is of type ${typeof rounds}.`;
+function displayWinner(winner){
+
+    result = `${winner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
+    alert(result)
+
+}
+
+function game(winner) {
+
+    if (winner == 'computer') {
+        computerWins += 1;
     }
 
-    else {
+    else if (winner == 'player') {
 
-        let computerWins = 0;
-        let playerWins = 0;
-        let ties = 0
-
-        for (let i = 0; i < rounds; i++) {
-
-            let result = playGame();
-            let message = result[0];
-            let winner = result[1];
-
-            if (winner == 'computer') {
-                computerWins += 1;
-            }
-
-            else if (winner == 'player') {
-
-                playerWins += 1;
-            }
-
-            else if (winner == 'tie'){
-                
-                ties += 1;
-
-            }
-
-            else {
-
-                continue;
-            }
-
-
-        }
-
-        let overallWinner = '';
-        if (computerWins > playerWins){
-
-            overallWinner = 'computer';
-        }
-
-        else {
-
-            overallWinner = 'player';
-        }
-
-        result = `${overallWinner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
-        console.log(result);
+        playerWins += 1;
     }
-}*/
+
+    else if (winner == 'tie'){
+        
+        ties += 1;
+
+    }
+
+    let overallWinner = '';
+    if (computerWins == 5){
+
+        overallWinner = 'computer';
+        displayWinner(overallWinner);
+        resetWinner();
+
+    }
+
+    else if (playerWins == 5) {
+
+        overallWinner = 'player';
+        displayWinner(overallWinner);
+        resetWinner();
+
+    }
+
+    else{
+
+        ;
+        
+    }
+
+}
