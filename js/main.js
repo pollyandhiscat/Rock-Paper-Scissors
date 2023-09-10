@@ -6,9 +6,9 @@ function getComputerChoice() {
 
 }
 
-function getPlayerChoice() {
+function getPlayerChoice(choice) {
 
-    choice = prompt("Please choose rock, paper, or scissors.").toLowerCase();
+    choice = choice.toLowerCase();
 
     if (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
 
@@ -76,15 +76,33 @@ function determineWinner(computerChoice, playerChoice) {
 }
 
 
-function playGame() {
+function playGame(choice) {
 
     let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerChoice();
+    let playerChoice = getPlayerChoice(choice);
     let result = determineWinner(computerChoice, playerChoice);
     let message = result[0];
     let winner = result[1];
     return [message, winner];
 }
+
+
+
+const playerSelection = document.querySelector('#playerSelection');
+// buttons is a node list.
+let buttons = playerSelection.querySelectorAll('.player-button');
+buttons.forEach(button => {
+
+    button.addEventListener('click', ()=> {
+
+        let choice = button.id.toString();
+        let result = playGame(choice);
+        alert(result[0]);
+
+    } );
+    
+});
+
 
 /* function game(rounds = 5) {
 
