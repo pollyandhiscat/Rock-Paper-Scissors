@@ -87,21 +87,25 @@ function playGame(choice) {
 }
 
 
+function displayPlayerButtons() {
 
-const playerSelection = document.querySelector('#playerSelection');
-// buttons is a node list.
-let buttons = playerSelection.querySelectorAll('.player-button');
-buttons.forEach(button => {
+    const playerSelection = document.querySelector('#playerSelection');
+    // buttons is a node list.
+    let buttons = playerSelection.querySelectorAll('.player-button');
+    buttons.forEach(button => {
 
-    button.addEventListener('click', ()=> {
+        button.addEventListener('click', () => {
 
-        let choice = button.id.toString();
-        let result = playGame(choice);
-        alert(result[0]);
+            let choice = button.id.toString();
+            let result = playGame(choice);
+            alert(result[0]);
 
-    } );
-    
-});
+        });
+
+    });
+
+
+}
 
 
 /* function game(rounds = 5) {
