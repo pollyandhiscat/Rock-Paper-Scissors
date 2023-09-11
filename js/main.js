@@ -156,7 +156,14 @@ function playGame(choice) {
 function displayWinner(winner){
 
     result = `${winner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
-    alert(result);
+    let resultDiv = document.createElement('div');
+    let resultDisplay = document.createElement('h4');
+    let playerSelection = document.querySelector('#player-selection');
+    resultDiv.setAttribute('style', 'color: beige;');
+    resultDisplay.textContent = result;
+    resultDiv.appendChild(resultDisplay);
+    playerSelection.appendChild(resultDiv);
+    
 
 }
 
