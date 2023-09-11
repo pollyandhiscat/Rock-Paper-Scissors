@@ -1,6 +1,6 @@
 * {
 
-    background-color: #355C7D;
+    background-color: #426d92;
 }
 
 #player-selection {
@@ -23,6 +23,8 @@
 
     border: 3px solid silver;
     border-radius: 25em;
+    padding: 5px;
+    color: beige;
 }
 
 .player-button {
