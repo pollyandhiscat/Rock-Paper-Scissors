@@ -1,10 +1,32 @@
 function resetScores() {
 
-    let playerScore = document.querySelector('#player-score');
-    let computerScore = document.querySelector('#computer-score');
-    playerScore.textContent = '0';
-    computerScore.textContent = '0';
+    let playerScoreNumber = document.querySelector('#player-score-number');
+    let computerScoreNumber = document.querySelector('#computer-score-number');
+    playerScoreNumber.textContent = 0;
+    computerScoreNumber.textContent = 0;
 
+}
+
+function updateScore(player) {
+
+    if (player == 'player') {
+
+        let playerScoreNumber = document.querySelector('#player-score-number');
+        playerScoreNumber.textContent = playerWins + 1;
+        
+    }
+
+    else if ('computer') {
+
+        let computerScoreNumber = document.querySelector('#computer-score-number');
+        computerScoreNumber.textContent = computerWins + 1;
+
+    }
+
+    else {
+
+        ;
+    }
 }
 
 function startListeners(rockButton, paperButton, scissorButton, resetButton){
@@ -26,7 +48,7 @@ function startListeners(rockButton, paperButton, scissorButton, resetButton){
 
     resetButton.addEventListener('click', () => {
     
-        playGame(scissorButton.id);
+        resetScores();
     });
 
 }
@@ -147,11 +169,13 @@ function game(winner) {
 
     if (winner == 'computer') {
         computerWins += 1;
+        updateScore(winner);
     }
 
     else if (winner == 'player') {
 
         playerWins += 1;
+        updateScore(winner);
     }
 
     else if (winner == 'tie'){
