@@ -1,3 +1,12 @@
+function resetScores() {
+
+    let playerScore = document.querySelector('#player-score');
+    let computerScore = document.querySelector('#computer-score');
+    playerScore.textContent = '0';
+    computerScore.textContent = '0';
+
+}
+
 function startListeners(rockButton, paperButton, scissorButton, resetButton){
 
     rockButton.addEventListener('click', () => {
