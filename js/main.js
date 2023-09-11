@@ -4,6 +4,9 @@ function resetScores() {
     let computerScoreNumber = document.querySelector('#computer-score-number');
     playerScoreNumber.textContent = 0;
     computerScoreNumber.textContent = 0;
+    computerWins = 0;
+    playerWins = 0;
+    ties = 0;
 
 }
 
@@ -12,14 +15,14 @@ function updateScore(player) {
     if (player == 'player') {
 
         let playerScoreNumber = document.querySelector('#player-score-number');
-        playerScoreNumber.textContent = playerWins + 1;
+        playerScoreNumber.textContent = playerWins;
         
     }
 
     else if ('computer') {
 
         let computerScoreNumber = document.querySelector('#computer-score-number');
-        computerScoreNumber.textContent = computerWins + 1;
+        computerScoreNumber.textContent = computerWins;
 
     }
 
@@ -150,14 +153,6 @@ function playGame(choice) {
 
 }
 
-
-function resetWinner() {
-
-    let computerWins = 0;
-    let playerWins = 0;
-    let ties = 0;
-}
-
 function displayWinner(winner){
 
     result = `${winner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
@@ -189,7 +184,7 @@ function game(winner) {
 
         overallWinner = 'computer';
         displayWinner(overallWinner);
-        resetWinner();
+        resetScores();
 
     }
 
@@ -197,7 +192,7 @@ function game(winner) {
 
         overallWinner = 'player';
         displayWinner(overallWinner);
-        resetWinner();
+        resetScores();
 
     }
 
