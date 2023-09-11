@@ -1,18 +1,23 @@
-function startListeners(rockButton, paperButton, scissorButton){
+function startListeners(rockButton, paperButton, scissorButton, resetButton){
 
     rockButton.addEventListener('click', () => {
 
-        playGame(rockButton.id)
+        playGame(rockButton.id);
     });
     
     paperButton.addEventListener('click', () => {
     
-            playGame(paperButton.id)
+            playGame(paperButton.id);
     });
     
     scissorButton.addEventListener('click', () => {
     
-        playGame(scissorButton.id)
+        playGame(scissorButton.id);
+    });
+
+    resetButton.addEventListener('click', () => {
+    
+        playGame(scissorButton.id);
     });
 
 }
@@ -20,11 +25,12 @@ function startListeners(rockButton, paperButton, scissorButton){
 let computerWins = 0;
 let playerWins = 0;
 let ties = 0;
-const playerSelection = document.querySelector('#playerSelection');
+const playerSelection = document.querySelector('#player-selection');
 let rockButton = playerSelection.querySelector('#rock');
 let paperButton = playerSelection.querySelector('#paper');
 let scissorButton = playerSelection.querySelector('#scissors');
-startListeners(rockButton, paperButton, scissorButton);
+let resetButton = playerSelection.querySelector('#reset');
+startListeners(rockButton, paperButton, scissorButton, resetButton);
 
 function getComputerChoice() {
 
@@ -105,7 +111,6 @@ function determineWinner(computerChoice, playerChoice) {
 
 function playGame(choice) {
 
-    console.log('Playing game');
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice(choice);
     let result = determineWinner(computerChoice, playerChoice);
@@ -125,7 +130,7 @@ function resetWinner() {
 function displayWinner(winner){
 
     result = `${winner} is the overall winner! Computer won ${computerWins} games. Player won ${playerWins} games. Tie games: ${ties}.`;
-    alert(result)
+    alert(result);
 
 }
 
